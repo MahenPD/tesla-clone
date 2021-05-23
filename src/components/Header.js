@@ -4,7 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 
 function Header() {
-  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(true);
 
   return (
     <Container>
@@ -23,11 +23,11 @@ function Header() {
       <RightMenu>
         <a href="#">Shop</a>
         <a href="#">Tesla Account</a>
-        <CustomMenu onClick={() => setBurgerMenuOpen(true)} />
+        <CustomMenu onClick={() => setBurgerMenuOpen(false)} />
       </RightMenu>
       <BurgerNav show={burgerMenuOpen}>
         <CloseWrapper>
-          <CustomClose onClick={() => setBurgerMenuOpen(false)} />
+          <CustomClose onClick={() => setBurgerMenuOpen(true)} />
         </CloseWrapper>
         <li>
           <a href="#"></a>Existing Inventory
@@ -122,7 +122,7 @@ const BurgerNav = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: white;
+  background-color: white;
   width: 300px;
   z-index: 16;
   list-style: none;
@@ -130,7 +130,7 @@ const BurgerNav = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
-  display: none;
+  transform: ${(props) => (props.show ? "translateX(100%)" : "translateX(0)")};
   transition: transform 0.2s ease-in;
   li {
     padding: 15px 0;

@@ -82,8 +82,12 @@ const RightButton = styled(LeftButton)`
 
 const DownArrow = styled.img`
   height: 40px;
-  overflow-x: hidden
+  overflow-x: hidden;
   animation: animateDown infinite 1.5s;
 `;
 
-const Buttons = styled.div``;
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
